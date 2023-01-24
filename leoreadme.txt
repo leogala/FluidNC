@@ -1,0 +1,1 @@
+changed main.cpp to add a serial port to communicate with the second ESP32
