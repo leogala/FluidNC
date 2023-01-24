@@ -10,7 +10,7 @@ except:
     gitFail = True
 
 if gitFail:
-    tag = "v3.0.x"
+    tag = "v3.3.x"
     rev = " (noGit)"
 else:
     try:
@@ -20,7 +20,7 @@ else:
             .decode("utf-8")
         )
     except:
-        tag = "v3.0.x"
+        tag = "v3.3.x"
 
     # Check to see if the head commit exactly matches a tag.
     # If so, the revision is "release", otherwise it is BRANCH-COMMIT

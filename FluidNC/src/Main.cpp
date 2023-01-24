@@ -27,6 +27,10 @@
 
 extern void make_user_commands();
 
+// L.G.'s code here
+Uart MyUart(2, true);   // Hardware UART block auto-assign, true for LF->CR-LF conversion)
+// End L.G.'s code here
+
 void setup() {
     disableCore0WDT();
     try {
@@ -129,6 +133,12 @@ void setup() {
         WebUI::bt_config.begin();
     }
     allChannels.deregistration(&startupLog);
+
+     // L.G.'s code here
+    MyUart.setPins(17,4);
+    MyUart.begin(115200, UartData::Bits8, UartStop::Bits1, UartParity::None);
+    allChannels.registration(&MyUart);               // Echo to myUart
+    // End L.G.'s code here
 }
 
 static void reset_variables() {
